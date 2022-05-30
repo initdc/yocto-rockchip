@@ -1,12 +1,7 @@
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    TZ=Asia/Shanghai \
     LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
-
-RUN set -e \
-    && sed -i 's/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list \
-    && apt update
 
 # ref: https://docs.yoctoproject.org/ref-manual/system-requirements.html#ubuntu-and-debian
 
@@ -15,6 +10,7 @@ RUN set -e \
 #     && apt-get remove oss4-dev
 
 RUN set -e \
+    && apt-get update \
     && apt-get install --no-install-recommends -y \
     # sorting by https://build.moz.one
     build-essential chrpath cpio debianutils  \
