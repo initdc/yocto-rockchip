@@ -1,0 +1,12 @@
+[submodule "poky"]
+	path = poky
+	url = git://git.yoctoproject.org/poky
+	branch = kirkstone
+[submodule "meta-openembedded"]
+	path = meta-openembedded
+	url = git://git.openembedded.org/meta-openembedded.git
+	branch = kirkstone
+[submodule "meta-rockchip"]
+	path = meta-rockchip
+	url = https://github.com/JeffyCN/meta-rockchip.git
+	branch = kirkstone
