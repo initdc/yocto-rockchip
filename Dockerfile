@@ -17,16 +17,21 @@ RUN set -e \
 RUN set -e \
     && apt-get install --no-install-recommends -y \
     # sorting by https://build.moz.one
-    build-essential chrpath cpio debianutils  \
-    diffstat file gawk gcc git iputils-ping  \
-    libegl1-mesa liblz4-tool libsdl1.2-dev  \
-    locales make mesa-common-dev pylint3  \
-    python3 python3-git python3-jinja2  \
-    python3-pexpect python3-pip  \
-    python3-subunit socat sudo texinfo unzip  \
-    wget xterm xz-utils zstd  \
+    build-essential chrpath cpio curl  \
+    debianutils diffstat file gawk gcc git  \
+    iputils-ping libegl1-mesa liblz4-tool  \
+    libsdl1.2-dev locales make  \
+    mesa-common-dev openssh-client pylint3  \
+    python-is-python3 python3 python3-git  \
+    python3-jinja2 python3-pexpect  \
+    python3-pip python3-subunit socat sudo  \
+    texinfo unzip wget xterm xz-utils zstd  \
     && apt-get autoremove --purge \
     && rm -rf /var/lib/apt/lists/*
+
+RUN set -e \
+    && curl -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
+    && chmod +x /usr/local/bin/repo
 
 RUN locale-gen en_US.UTF-8
 RUN pip3 install sphinx sphinx_rtd_theme pyyaml

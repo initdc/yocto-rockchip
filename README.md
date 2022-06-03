@@ -6,6 +6,15 @@
 
   `git submodule update --init --recursive`
 
+- repo (fetch)
+
+  ```sh
+  mkdir riscv-yocto && cd riscv-yocto
+  repo init -u https://github.com/riscv/meta-riscv -b master -m tools/manifests/riscv-yocto.xml
+  repo sync
+  repo start work --all
+  ```
+
 - Docker
 
   ```sh
@@ -24,6 +33,6 @@ bitbake core-image-minimal
 
 ## Test
 
->ref:  https://docs.yoctoproject.org/dev-manual/qemu.html
+> ref: https://docs.yoctoproject.org/dev-manual/qemu.html
 
 `runqemu qemux86-64 core-image-minimal ext4`
